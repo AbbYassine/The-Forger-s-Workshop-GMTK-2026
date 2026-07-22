@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b3518e0i6ejl3"]
+
+[ext_resource type="Script" uid="uid://cq5ptlr8886st" path="res://Scripts/node_2d.gd" id="1_nl5jd"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" unique_id=1618170698]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=826317436]
+
+[node name="Node2D" type="Node2D" parent="SubViewport" unique_id=1023550943]
+script = ExtResource("1_nl5jd")
