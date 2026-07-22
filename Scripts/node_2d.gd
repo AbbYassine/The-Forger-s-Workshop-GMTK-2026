@@ -1,50 +1,59 @@
 extends Node2D
 
-var drawing = false
-var brush_size = 5
-var brush_color = Color.BLACK
-var last_position = Vector2.ZERO
+const PIXEL_SIZE := 16
+const CANVAS_WIDTH := 32
+const CANVAS_HEIGHT := 32
+
+var drawing := false
+var brush_color := Color.BLACK
+
 var canvas_image: Image
 var canvas_texture: ImageTexture
-var canvas_size = Vector2(512, 512)
 
 func _ready() -> void:
-	canvas_image = Image.create(canvas_size.x, canvas_size.y, false, Image.FORMAT_RGBA8)
+	canvas_image = Image.create(CANVAS_WIDTH, CANVAS_HEIGHT, false, Image.FORMAT_RGBA8)
 	canvas_image.fill(Color.WHITE)
+
 	canvas_texture = ImageTexture.create_from_image(canvas_image)
 
-func _input(event: InputEvent) -> void:
+func _input(event):
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			drawing = event.pressed
-			if drawing:
-				last_position = get_local_mouse_position()
-	
-	if event is InputEventMouseMotion and drawing:
-		var current_position = get_local_mouse_position()
-		draw_stroke(last_position, current_position)
-		last_position = current_position
 
-func draw_stroke(from: Vector2, to: Vector2) -> void:
-	var distance = from.distance_to(to)
-	var steps = max(1, int(distance))
-	for i in steps:
-		var point = from.lerp(to, float(i) / steps)
-		draw_circle_on_image(point)
+			if drawing:
+				paint_pixel()
+
+	if event is InputEventMouseMotion and drawing:
+		paint_pixel()
+
+func paint_pixel():
+
+	var mouse = get_local_mouse_position()
+
+	var x = int(mouse.x / PIXEL_SIZE)
+	var y = int(mouse.y / PIXEL_SIZE)
+
+	if x >= 0 and x < CANVAS_WIDTH and y >= 0 and y < CANVAS_HEIGHT:
+		canvas_image.set_pixel(x, y, brush_color)
+
 	canvas_texture.update(canvas_image)
 	queue_redraw()
 
-func draw_circle_on_image(pos: Vector2) -> void:
-	for x in range(-brush_size, brush_size + 1):
-		for y in range(-brush_size, brush_size + 1):
-			if x * x + y * y <= brush_size * brush_size:
-				var px = int(pos.x) + x
-				var py = int(pos.y) + y
-				if px >= 0 and px < canvas_size.x and py >= 0 and py < canvas_size.y:
-					canvas_image.set_pixel(px, py, brush_color)
+func _draw():
 
-func _draw() -> void:
-	draw_texture(canvas_texture, Vector2.ZERO)
+	draw_texture_rect(
+		canvas_texture,
+		Rect2(
+			Vector2.ZERO,
+			Vector2(
+				CANVAS_WIDTH * PIXEL_SIZE,
+				CANVAS_HEIGHT * PIXEL_SIZE
+			)
+		),
+		false
+	)
 
 func get_canvas_image() -> Image:
 	return canvas_image
