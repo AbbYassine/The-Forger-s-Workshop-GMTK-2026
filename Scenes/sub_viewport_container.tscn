@@ -1,8 +1,30 @@
 [gd_scene format=3 uid="uid://b3518e0i6ejl3"]
 
-[ext_resource type="Script" uid="uid://c6fugqeno0wew" path="res://Scripts/sub_viewport_container.gd" id="1_3tun1"]
+[ext_resource type="Script" uid="uid://c6fugqeno0wew" path="res://Scripts/node.gd" id="1_3tun1"]
 [ext_resource type="Script" uid="uid://cq5ptlr8886st" path="res://Scripts/node_2d.gd" id="1_nl5jd"]
-[ext_resource type="Texture2D" uid="uid://b7f4jwir5gmfb" path="res://assets/duck.png" id="3_so2p4"]
+[ext_resource type="Texture2D" uid="uid://b7f4jwir5gmfb" path="res://assets/paintings/duck.png" id="3_so2p4"]
+[ext_resource type="Script" uid="uid://bnlv0si6y70vy" path="res://Scripts/grid_container.gd" id="4_2de4x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2de4x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrad2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vl6kb"]
+bg_color = Color(0.9843137, 0.9490196, 0.21176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po7aq"]
+bg_color = Color(0.22745098, 0.5254902, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mae1"]
+bg_color = Color(0.54509807, 0.3529412, 0.16862746, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcjru"]
+bg_color = Color(0.41568628, 0.74509805, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u3bu"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="node" type="Node" unique_id=395393826]
 script = ExtResource("1_3tun1")
@@ -41,7 +63,6 @@ offset_top = 23.0
 offset_right = 81.0
 offset_bottom = 95.0
 grow_horizontal = 2
-mouse_filter = 2
 
 [node name="TimerLabel" type="Label" parent="UI" unique_id=874329031]
 layout_mode = 1
@@ -72,4 +93,64 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_so2p4")
 
+[node name="GridContainer" type="GridContainer" parent="UI" unique_id=1146407246]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 70.0
+offset_right = 112.0
+offset_bottom = 520.0
+mouse_filter = 0
+script = ExtResource("4_2de4x")
+
+[node name="black" type="Button" parent="UI/GridContainer" unique_id=1097063012]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2de4x")
+icon_alignment = 1
+
+[node name="white" type="Button" parent="UI/GridContainer" unique_id=1714442931]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrad2")
+icon_alignment = 1
+
+[node name="yellow" type="Button" parent="UI/GridContainer" unique_id=413247722]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vl6kb")
+icon_alignment = 1
+
+[node name="blue" type="Button" parent="UI/GridContainer" unique_id=1281932394]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_po7aq")
+icon_alignment = 1
+
+[node name="brown" type="Button" parent="UI/GridContainer" unique_id=681390602]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7mae1")
+icon_alignment = 1
+
+[node name="green" type="Button" parent="UI/GridContainer" unique_id=1567514675]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gcjru")
+icon_alignment = 1
+
+[node name="red" type="Button" parent="UI/GridContainer" unique_id=1755647906]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2u3bu")
+icon_alignment = 1
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/GridContainer/black" to="UI/GridContainer" method="_on_black_pressed"]
+[connection signal="pressed" from="UI/GridContainer/white" to="UI/GridContainer" method="_on_white_pressed"]
+[connection signal="pressed" from="UI/GridContainer/yellow" to="UI/GridContainer" method="_on_yellow_pressed"]
+[connection signal="pressed" from="UI/GridContainer/blue" to="UI/GridContainer" method="_on_blue_pressed"]
+[connection signal="pressed" from="UI/GridContainer/brown" to="UI/GridContainer" method="_on_brown_pressed"]
+[connection signal="pressed" from="UI/GridContainer/green" to="UI/GridContainer" method="_on_green_pressed"]
+[connection signal="pressed" from="UI/GridContainer/red" to="UI/GridContainer" method="_on_red_pressed"]

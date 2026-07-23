@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqa6wgljuxyjh"
-path="res://.godot/imported/Canvas.png-910d5dfc41b15bed46f48d9c163de27b.ctex"
+uid="uid://dt5ibg38gb866"
+path="res://.godot/imported/candle.png-63e84a2e0a0c86fbc9c4a574a0beacdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Canvas.png"
-dest_files=["res://.godot/imported/Canvas.png-910d5dfc41b15bed46f48d9c163de27b.ctex"]
+source_file="res://assets/paintings/candle.png"
+dest_files=["res://.godot/imported/candle.png-63e84a2e0a0c86fbc9c4a574a0beacdb.ctex"]
 
 [params]
 
