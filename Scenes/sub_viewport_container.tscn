@@ -9,13 +9,13 @@ script = ExtResource("1_3tun1")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1720244128]
 anchors_preset = -1
-anchor_left = 0.062000003
+anchor_left = 0.042000003
 anchor_top = 0.14
-anchor_right = 0.45200002
+anchor_right = 0.432
 anchor_bottom = 0.83500004
-offset_left = -0.4240036
+offset_left = -0.3840027
 offset_top = 0.27999878
-offset_right = 0.29595947
+offset_right = 0.33599854
 offset_bottom = -0.08001709
 grow_horizontal = 2
 grow_vertical = 2
@@ -44,25 +44,32 @@ grow_horizontal = 2
 mouse_filter = 2
 
 [node name="TimerLabel" type="Label" parent="UI" unique_id=874329031]
-layout_mode = 0
-offset_left = 27.0
-offset_top = -3.0
-offset_right = 67.0
-offset_bottom = 20.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.5
+offset_right = 83.0
+offset_bottom = 73.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PaintingDisplay" type="TextureRect" parent="UI" unique_id=1856081808]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.791
-anchor_top = 1.0
-anchor_right = 3.466
-anchor_bottom = 7.1110005
-offset_left = 0.06700134
-offset_top = -1.0
-offset_right = 0.041992188
-offset_bottom = 0.007965088
+anchor_left = 0.90800005
+anchor_top = 0.93100005
+anchor_right = 3.6560001
+anchor_bottom = 7.2360005
+offset_left = -0.0040130615
+offset_top = -0.03200531
+offset_right = 0.07196045
+offset_bottom = -3.9920654
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_so2p4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

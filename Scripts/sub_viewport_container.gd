@@ -13,6 +13,7 @@ var game_started = false
 func _ready() -> void:
 	# show the painting first
 	painting_display.visible = true
+	timer_label.text = str(int(painting_reveal_time)) + "s"
 	await get_tree().create_timer(painting_reveal_time).timeout
 	# hide painting and start the drawing timer
 	painting_display.visible = false
@@ -28,6 +29,7 @@ func start_drawing_timer() -> void:
 
 func _on_timer_timeout() -> void:
 	time_remaining -= 1.0
+	painting_reveal_time -= 1.0
 	timer_label.text = str(int(time_remaining)) + "s"
 	if time_remaining <= 0:
 		timer.stop()
@@ -37,3 +39,4 @@ func end_game() -> void:
 	game_started = false
 	# calculate score here later
 	timer_label.text = "Time's up!"
+	drawing_canvas.can_draw = false
