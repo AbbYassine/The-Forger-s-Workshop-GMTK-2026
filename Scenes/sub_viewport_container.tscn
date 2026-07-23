@@ -146,6 +146,31 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_2u3bu")
 icon_alignment = 1
 
+[node name="Tools" type="Control" parent="UI" unique_id=229138323]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.55600005
+offset_left = -109.5
+offset_top = 529.0
+offset_right = 85.5
+offset_bottom = 577.968
+grow_horizontal = 2
+
+[node name="bucket" type="Button" parent="UI/Tools" unique_id=2100030909]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 29.0
+offset_right = 64.0
+offset_bottom = 66.0
+
+[node name="pencil" type="Button" parent="UI/Tools" unique_id=241690663]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 38.0
+offset_right = 125.0
+offset_bottom = 67.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/GridContainer/black" to="UI/GridContainer" method="_on_black_pressed"]
 [connection signal="pressed" from="UI/GridContainer/white" to="UI/GridContainer" method="_on_white_pressed"]
@@ -154,3 +179,5 @@ icon_alignment = 1
 [connection signal="pressed" from="UI/GridContainer/brown" to="UI/GridContainer" method="_on_brown_pressed"]
 [connection signal="pressed" from="UI/GridContainer/green" to="UI/GridContainer" method="_on_green_pressed"]
 [connection signal="pressed" from="UI/GridContainer/red" to="UI/GridContainer" method="_on_red_pressed"]
+[connection signal="pressed" from="UI/Tools/bucket" to="." method="_on_bucket_pressed"]
+[connection signal="pressed" from="UI/Tools/pencil" to="." method="_on_pencil_pressed"]
