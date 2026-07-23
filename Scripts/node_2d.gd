@@ -6,7 +6,6 @@ var brush_color = Color.BLACK
 var canvas_size = Vector2(512, 512)
 var grid_size = 8  
 var cell_size: Vector2
-
 var canvas_image: Image
 var canvas_texture: ImageTexture
 
