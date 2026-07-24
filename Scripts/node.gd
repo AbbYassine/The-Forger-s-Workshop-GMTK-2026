@@ -8,8 +8,8 @@ extends Node
 var original_painting: Image
 
 var grid_zones = 16
-var time_limit = 30.0
-var time_remaining = 30.0
+var time_limit = 3
+var time_remaining = 3
 var painting_reveal_time = 5.0
 var game_started = false
 var player_image: Image
@@ -17,13 +17,22 @@ var player_image: Image
 var paintings = [
 	"res://assets/paintings/candle.png",
 	"res://assets/paintings/duck.png",
+	"res://assets/paintings/temple.png",
+	"res://assets/paintings/batman.png",
 	"res://assets/paintings/ET.png",
 	"res://assets/paintings/Sword.png",
-	"res://assets/paintings/temple.png"
+	"res://assets/paintings/candle.png",
+	"res://assets/paintings/cat.png",
+	"res://assets/paintings/yin&yang.png"
+	
 ]
+
+var paintings_queue: Array = []
 
 
 func _ready() -> void:
+	paintings_queue = paintings.duplicate()
+	paintings_queue.shuffle()
 	load_random_painting()
 	player_image = drawing_canvas.get_canvas_image()
 	painting_display.visible = true
@@ -69,7 +78,11 @@ func calculate_score() -> float:
 	return float(matches) / float(total) * 100.0
 	
 func load_random_painting() -> void:
-	var path = paintings[randi() % paintings.size()]
+	if paintings_queue.size() == 0:
+		paintings_queue = paintings.duplicate()
+		paintings_queue.shuffle()
+	
+	var path = paintings_queue.pop_back()
 	var texture = load(path)
 	painting_display.texture = texture
 	original_painting = texture.get_image()

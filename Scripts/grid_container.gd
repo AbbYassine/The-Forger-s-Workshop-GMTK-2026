@@ -23,4 +23,4 @@ func _on_yellow_pressed() -> void:
 
 
 func _on_green_pressed() -> void:
-	pass # Replace with function body.
+	drawing_canvas.brush_color = Color.GREEN

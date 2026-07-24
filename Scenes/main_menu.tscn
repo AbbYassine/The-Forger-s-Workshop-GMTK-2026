@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://pcq8rppqacnt"]
+
+[ext_resource type="Texture2D" uid="uid://te037t3v1flg" path="res://assets/Background/Green.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://bl381jh7jry7b" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+
+[node name="main_menu" type="Node" unique_id=1915236102]
+script = ExtResource("1_48xlc")
+
+[node name="MN_BackGround" type="TextureRect" parent="." unique_id=893883815]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_28flt")
+stretch_mode = 1
+
+[node name="Game_Name" type="TextureRect" parent="." unique_id=1902638131]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -190.0
+offset_right = 308.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" type="Button" parent="." unique_id=198391547]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = 87.0
+offset_right = -20.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[node name="exit" type="Button" parent="." unique_id=857995137]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = 87.0
+offset_right = 308.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

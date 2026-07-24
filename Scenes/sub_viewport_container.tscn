@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c6fugqeno0wew" path="res://Scripts/node.gd" id="1_3tun1"]
 [ext_resource type="Script" uid="uid://cq5ptlr8886st" path="res://Scripts/node_2d.gd" id="1_nl5jd"]
+[ext_resource type="Texture2D" uid="uid://te037t3v1flg" path="res://assets/Background/Green.png" id="2_po7aq"]
 [ext_resource type="Texture2D" uid="uid://b7f4jwir5gmfb" path="res://assets/paintings/duck.png" id="3_so2p4"]
 [ext_resource type="Script" uid="uid://bnlv0si6y70vy" path="res://Scripts/grid_container.gd" id="4_2de4x"]
+[ext_resource type="Texture2D" uid="uid://hw7vhr7qcpop" path="res://assets/tools/bucket.png" id="5_vl6kb"]
+[ext_resource type="Texture2D" uid="uid://cfd5cp7h4iw8q" path="res://assets/tools/pencil2.png" id="6_vl6kb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2de4x"]
 bg_color = Color(0, 0, 0, 1)
@@ -28,6 +31,15 @@ bg_color = Color(1, 0, 0, 1)
 
 [node name="node" type="Node" unique_id=395393826]
 script = ExtResource("1_3tun1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1836889095]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_po7aq")
+stretch_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1720244128]
 anchors_preset = -1
@@ -97,10 +109,10 @@ texture = ExtResource("3_so2p4")
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 9.0
-offset_top = 70.0
-offset_right = 112.0
-offset_bottom = 520.0
+offset_left = 39.0
+offset_top = 67.0
+offset_right = 142.0
+offset_bottom = 517.0
 mouse_filter = 0
 script = ExtResource("4_2de4x")
 
@@ -158,18 +170,28 @@ offset_bottom = 577.968
 grow_horizontal = 2
 
 [node name="bucket" type="Button" parent="UI/Tools" unique_id=2100030909]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 24.0
-offset_top = 29.0
-offset_right = 64.0
-offset_bottom = 66.0
+offset_left = 28.0
+offset_top = 2.0
+offset_right = 92.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 16
+icon = ExtResource("5_vl6kb")
+icon_alignment = 1
+expand_icon = true
 
 [node name="pencil" type="Button" parent="UI/Tools" unique_id=241690663]
+texture_filter = 1
 layout_mode = 0
-offset_left = 83.0
-offset_top = 38.0
-offset_right = 125.0
-offset_bottom = 67.0
+offset_left = 103.0
+offset_top = 3.0
+offset_right = 174.0
+offset_bottom = 71.0
+icon = ExtResource("6_vl6kb")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/GridContainer/black" to="UI/GridContainer" method="_on_black_pressed"]
