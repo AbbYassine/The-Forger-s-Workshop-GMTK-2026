@@ -25,3 +25,11 @@ func _on_yellow_pressed() -> void:
 
 func _on_green_pressed() -> void:
 	drawing_canvas.brush_color = Color.GREEN
+
+
+func _on_pink_pressed() -> void:
+	drawing_canvas.brush_color = Color.html("d77bba")
+
+
+func _on_gray_pressed() -> void:
+	drawing_canvas.brush_color = Color.html("#808080")

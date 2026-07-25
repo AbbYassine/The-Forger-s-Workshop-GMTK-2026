@@ -25,7 +25,7 @@ offset_bottom = 302.0
 theme_override_colors/font_color = Color(0.16024098, 0.13153222, 0.061361596, 1)
 theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 50
-text = "THE FORGER'S WORKSHOPR"
+text = "THE FORGER'S WORKSHOP"
 horizontal_alignment = 1
 vertical_alignment = 1
 

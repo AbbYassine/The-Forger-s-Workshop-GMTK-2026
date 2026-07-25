@@ -8,9 +8,10 @@ extends Node
 var original_painting: Image
 
 var grid_zones = 16
-var time_limit = 3
-var time_remaining = 3
+var time_limit = 45
+var time_remaining = 45
 var painting_reveal_time = 5.0
+var painting_reveal_remaining_time = 5.0
 var game_started = false
 var player_image: Image
 
@@ -23,42 +24,62 @@ var paintings = [
 	"res://assets/paintings/Sword.png",
 	"res://assets/paintings/cat.png",
 	"res://assets/paintings/yin&yang.png"
-	
 ]
 
-
-
+enum GameState { REVEALING, DRAWING }
+var current_state = GameState.REVEALING
 
 func _ready() -> void:
-	# Only reset and set up the queue if this is the very first round
 	if GameData.accuracy_history.is_empty():
 		GameData.reset_run()
 		GameData.total_paintings = paintings.size()
 		GameData.setup_paintings_queue(paintings) 
 
+	start_reveal_phase()
+
+func start_reveal_phase() -> void:
+	current_state = GameState.REVEALING
+	drawing_canvas.can_draw = false
+	game_started = false
+	
 	load_random_painting()
 	player_image = drawing_canvas.get_canvas_image()
 	painting_display.visible = true
-	timer_label.text = str(int(painting_reveal_time)) + "s"
-	await get_tree().create_timer(painting_reveal_time).timeout
-	painting_display.visible = false
-	start_drawing_timer()
-
+	
+	painting_reveal_remaining_time = painting_reveal_time
+	timer_label.text = str(int(painting_reveal_remaining_time)) + "s"
+	
+	timer.wait_time = 1.0
+	timer.start()
 
 func start_drawing_timer() -> void:
+	current_state = GameState.DRAWING
 	drawing_canvas.can_draw = true
 	game_started = true
+	
 	time_remaining = time_limit
 	timer_label.text = str(int(time_remaining)) + "s"
-	timer.wait_time = 1.0  # ticks every second
+	
+	timer.wait_time = 1.0 
 	timer.start()
 
 func _on_timer_timeout() -> void:
-	time_remaining -= 1.0
-	timer_label.text = str(int(time_remaining)) + "s"
-	if time_remaining <= 0:
-		timer.stop()
-		end_game()
+	if current_state == GameState.REVEALING:
+		painting_reveal_remaining_time -= 1.0
+		timer_label.text = str(int(painting_reveal_remaining_time)) + "s"
+		
+		if painting_reveal_remaining_time <= 0:
+			timer.stop()
+			painting_display.visible = false
+			start_drawing_timer()
+			
+	elif current_state == GameState.DRAWING:
+		time_remaining -= 1.0
+		timer_label.text = str(int(time_remaining)) + "s"
+		
+		if time_remaining <= 0:
+			timer.stop()
+			end_game()
 
 func end_game() -> void:
 	print("end_game called, score: ", calculate_score())
@@ -94,17 +115,10 @@ func load_random_painting() -> void:
 	
 func start_new_round() -> void:
 	drawing_canvas.clear_canvas()  
-	load_random_painting()
-	painting_display.visible = true
-	timer_label.text = str(int(painting_reveal_time)) + "s"
-	await get_tree().create_timer(painting_reveal_time).timeout
-	painting_display.visible = false
-	start_drawing_timer()
-
+	start_reveal_phase()
 
 func _on_bucket_pressed() -> void:
 	drawing_canvas.bucket_mode = true
-
 
 func _on_pencil_pressed() -> void:
 	drawing_canvas.bucket_mode = false

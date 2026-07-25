@@ -30,6 +30,12 @@ bg_color = Color(0.41568628, 0.74509805, 0.1882353, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u3bu"]
 bg_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ne8d"]
+bg_color = Color(0.84313726, 0.48235294, 0.7294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y76r2"]
+bg_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+
 [node name="node" type="Node" unique_id=395393826]
 script = ExtResource("1_3tun1")
 
@@ -125,11 +131,12 @@ texture = ExtResource("3_so2p4")
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 39.0
-offset_top = 67.0
-offset_right = 142.0
-offset_bottom = 517.0
+offset_left = 9.0
+offset_top = 102.0
+offset_right = 133.0
+offset_bottom = 439.0
 mouse_filter = 0
+columns = 2
 script = ExtResource("4_2de4x")
 
 [node name="black" type="Button" parent="UI/GridContainer" unique_id=1097063012]
@@ -174,14 +181,23 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_2u3bu")
 icon_alignment = 1
 
+[node name="pink" type="Button" parent="UI/GridContainer" unique_id=569131351]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1ne8d")
+
+[node name="gray" type="Button" parent="UI/GridContainer" unique_id=1973197378]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_y76r2")
+
 [node name="Tools" type="Control" parent="UI" unique_id=229138323]
 layout_mode = 1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.55600005
-offset_left = -109.5
+offset_left = -124.5
 offset_top = 529.0
-offset_right = 85.5
+offset_right = 72.5
 offset_bottom = 577.968
 grow_horizontal = 2
 
@@ -217,5 +233,7 @@ expand_icon = true
 [connection signal="pressed" from="UI/GridContainer/brown" to="UI/GridContainer" method="_on_brown_pressed"]
 [connection signal="pressed" from="UI/GridContainer/green" to="UI/GridContainer" method="_on_green_pressed"]
 [connection signal="pressed" from="UI/GridContainer/red" to="UI/GridContainer" method="_on_red_pressed"]
+[connection signal="pressed" from="UI/GridContainer/pink" to="UI/GridContainer" method="_on_pink_pressed"]
+[connection signal="pressed" from="UI/GridContainer/gray" to="UI/GridContainer" method="_on_gray_pressed"]
 [connection signal="pressed" from="UI/Tools/bucket" to="." method="_on_bucket_pressed"]
 [connection signal="pressed" from="UI/Tools/pencil" to="." method="_on_pencil_pressed"]
