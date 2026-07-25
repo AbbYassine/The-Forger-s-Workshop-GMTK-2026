@@ -58,13 +58,17 @@ func _on_timer_timeout() -> void:
 		end_game()
 
 func end_game() -> void:
+	print("end_game called, score: ", calculate_score())
 	game_started = false
 	drawing_canvas.can_draw = false
 	var score = calculate_score()
-	timer_label.text = "Score: " + str(snappedf(score, 0.1)) + "%"
 	
-	await get_tree().create_timer(3.0).timeout  # pause to show score
-	start_new_round()
+	GameData.player_image = drawing_canvas.get_canvas_image()
+	GameData.original_image = original_painting
+	GameData.accuracy_score = score
+	
+	print("switching scene now")
+	get_tree().change_scene_to_file("res://Scenes/results.tscn")
 
 func calculate_score() -> float:
 	player_image = drawing_canvas.get_canvas_image()
