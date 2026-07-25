@@ -5,8 +5,6 @@ extends Control
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var next_button: Button = $NextButton
 
-var total_paintings: int = 0
-
 func _ready() -> void:
 
 	var player_texture = ImageTexture.create_from_image(GameData.player_image)
@@ -27,16 +25,12 @@ func animate_accuracy() -> void:
 	var target = GameData.accuracy_score
 	progress_bar.value = 100
 	var tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_method(_update_accuracy_label, 0.0, target, 1.5)
-	tween.tween_property(progress_bar, "value", target, 1.5)
+	tween.tween_method(_update_accuracy_display, 0.0, target, 1.5)
 
-func _update_accuracy_label(value: float) -> void:
+func _update_accuracy_display(value):
 	accuracy_label.text = str(int(value)) + "%"
+	progress_bar.value = 100.0 - value
 	
 
 func _on_next_pressed() -> void:
-	if GameData.is_run_complete():
-		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
-	else:
-		get_tree().change_scene_to_file("res://Scenes/sub_viewport_container.tscn")
+	get_tree().change_scene_to_file("res://Scenes/sub_viewport_container.tscn")

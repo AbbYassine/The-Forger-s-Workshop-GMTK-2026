@@ -2,7 +2,6 @@ extends GridContainer
 
 @onready var drawing_canvas: Node2D = $"../../SubViewportContainer/SubViewport/Node2D"
 
-
 func _on_black_pressed() -> void:
 	print("black pressed")
 	drawing_canvas.brush_color = Color.BLACK
@@ -14,7 +13,7 @@ func _on_red_pressed() -> void:
 	drawing_canvas.brush_color = Color.RED
 
 func _on_blue_pressed() -> void:
-	drawing_canvas.brush_color = Color.html("#3A86FF")
+	drawing_canvas.brush_color = Color.BLUE
 
 func _on_brown_pressed() -> void:
 	drawing_canvas.brush_color = Color.BROWN

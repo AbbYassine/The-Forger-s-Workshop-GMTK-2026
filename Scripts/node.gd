@@ -21,21 +21,18 @@ var paintings = [
 	"res://assets/paintings/batman.png",
 	"res://assets/paintings/ET.png",
 	"res://assets/paintings/Sword.png",
+	"res://assets/paintings/candle.png",
 	"res://assets/paintings/cat.png",
 	"res://assets/paintings/yin&yang.png"
 	
 ]
 
-
+var paintings_queue: Array = []
 
 
 func _ready() -> void:
-	# Only reset and set up the queue if this is the very first round
-	if GameData.accuracy_history.is_empty():
-		GameData.reset_run()
-		GameData.total_paintings = paintings.size()
-		GameData.setup_paintings_queue(paintings) 
-
+	paintings_queue = paintings.duplicate()
+	paintings_queue.shuffle()
 	load_random_painting()
 	player_image = drawing_canvas.get_canvas_image()
 	painting_display.visible = true
@@ -69,7 +66,6 @@ func end_game() -> void:
 	GameData.player_image = drawing_canvas.get_canvas_image()
 	GameData.original_image = original_painting
 	GameData.accuracy_score = score
-	GameData.add_score(score) 
 	
 	print("switching scene now")
 	get_tree().change_scene_to_file("res://Scenes/results.tscn")
@@ -86,7 +82,11 @@ func calculate_score() -> float:
 	return float(matches) / float(total) * 100.0
 	
 func load_random_painting() -> void:
-	var path = GameData.pop_next_painting()
+	if paintings_queue.size() == 0:
+		paintings_queue = paintings.duplicate()
+		paintings_queue.shuffle()
+	
+	var path = paintings_queue.pop_back()
 	var texture = load(path)
 	painting_display.texture = texture
 	original_painting = texture.get_image()
