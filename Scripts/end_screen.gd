@@ -8,12 +8,11 @@ const WIN_THRESHOLD = 60.0
 
 func _ready() -> void:
 	var average = GameData.get_average_accuracy()
-	average_label.text = "Average Accuracy: " + str(snappedf(average, 0.1)) + "%"
 	
 	if average >= WIN_THRESHOLD:
-		result_label.text = "You Win!"
+		result_label.text = "Congrats ! After all that hard Work the museum did't notice that you changed those artwork , your talent knows no bounds"
 	else:
-		result_label.text = "You Lose!"
+		result_label.text = "After all that hard work you got caught...... it seems you need to work on your paintings skill"
 	if retry_button.pressed.connect(_on_retry_pressed):
 		GameData.reset_run()
 

@@ -4,7 +4,7 @@ extends Node
 
 
 func _on_start_pressed() -> void:
-	pass
+	Transition.transition_to("res://Scenes/sub_viewport_container.tscn")
 
 
 

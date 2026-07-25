@@ -41,6 +41,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7mae1")
 
+[node name="Label" type="Label" parent="." unique_id=2109377944]
+texture_filter = 1
+custom_minimum_size = Vector2(500, 100)
+offset_left = 299.0
+offset_top = 202.0
+offset_right = 849.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.16024098, 0.13153222, 0.061361596, 1)
+theme_override_fonts/font = ExtResource("4_7mae1")
+theme_override_font_sizes/font_size = 50
+text = "THE FORGER'S WORKSHOPR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1720244128]
 anchors_preset = -1
 anchor_left = 0.042000003

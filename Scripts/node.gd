@@ -72,7 +72,7 @@ func end_game() -> void:
 	GameData.add_score(score) 
 	
 	print("switching scene now")
-	get_tree().change_scene_to_file("res://Scenes/results.tscn")
+	Transition.transition_to("res://Scenes/results.tscn")
 
 func calculate_score() -> float:
 	player_image = drawing_canvas.get_canvas_image()
