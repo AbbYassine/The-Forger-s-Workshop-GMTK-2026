@@ -28,11 +28,7 @@ func animate_accuracy() -> void:
 	progress_bar.value = 100
 	var tween = create_tween()
 	tween.set_parallel(true)
-	tween.tween_method(_update_accuracy_label, 0.0, target, 1.5)
 	tween.tween_property(progress_bar, "value", target, 1.5)
-
-func _update_accuracy_label(value: float) -> void:
-	accuracy_label.text = str(int(value)) + "%"
 	
 
 func _on_next_pressed() -> void:

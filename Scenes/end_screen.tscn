@@ -1,13 +1,25 @@
 [gd_scene format=3 uid="uid://8tw42qpxpnvx"]
 
 [ext_resource type="Script" uid="uid://c2xsu46iji15t" path="res://Scripts/end_screen.gd" id="1_f2mtv"]
+[ext_resource type="Texture2D" uid="uid://cpfqjnq4b770k" path="res://assets/Background/background.png" id="2_1gwaw"]
 
 [node name="EndScreen" type="Control" unique_id=470208089]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_f2mtv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=805695015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1gwaw")
 
 [node name="ResultLabel" type="Label" parent="." unique_id=924959090]
 layout_mode = 0
@@ -20,9 +32,16 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="RetryButton" type="Button" parent="." unique_id=394776392]
-layout_mode = 0
-offset_left = 504.0
-offset_top = 413.0
-offset_right = 847.0
-offset_bottom = 506.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.5
+offset_top = -134.0
+offset_right = 171.5
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Retry"

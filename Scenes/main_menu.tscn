@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://pcq8rppqacnt"]
 
-[ext_resource type="Texture2D" uid="uid://te037t3v1flg" path="res://assets/Background/Green.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://bl381jh7jry7b" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://cpfqjnq4b770k" path="res://assets/Background/background.png" id="2_1ehe0"]
+[ext_resource type="FontFile" uid="uid://63588k5hdlkc" path="res://assets/font/PixelOperator.ttf" id="3_ce3w2"]
 
 [node name="main_menu" type="Node" unique_id=1915236102]
 script = ExtResource("1_48xlc")
@@ -12,23 +13,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_28flt")
-stretch_mode = 1
+texture = ExtResource("2_1ehe0")
 
-[node name="Game_Name" type="TextureRect" parent="." unique_id=1902638131]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -190.0
-offset_right = 308.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="." unique_id=699396192]
+texture_filter = 1
+custom_minimum_size = Vector2(500, 100)
+offset_left = 299.0
+offset_top = 202.0
+offset_right = 849.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.16024098, 0.13153222, 0.061361596, 1)
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 50
+text = "THE FORGER'S WORKSHOPR"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="start" type="Button" parent="." unique_id=198391547]
+[node name="Buttons" type="Node" parent="." unique_id=416555020]
+
+[node name="start" type="Button" parent="Buttons" unique_id=198391547]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,14 +39,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -307.0
-offset_top = 87.0
+offset_top = 203.0
 offset_right = -20.0
-offset_bottom = 166.0
+offset_bottom = 282.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 32
 text = "START"
 
-[node name="exit" type="Button" parent="." unique_id=857995137]
+[node name="exit" type="Button" parent="Buttons" unique_id=857995137]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,12 +56,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 21.0
-offset_top = 87.0
+offset_top = 203.0
 offset_right = 308.0
-offset_bottom = 166.0
+offset_bottom = 282.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 32
 text = "EXIT"
 
-[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/exit" to="." method="_on_exit_pressed"]
