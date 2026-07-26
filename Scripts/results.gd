@@ -1,7 +1,6 @@
 extends Control
 @onready var player_display: TextureRect = $Playerpainting
 @onready var original_display: TextureRect = $Originalpainting
-@onready var accuracy_label: Label = $Accuracylabel
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var next_button: Button = $NextButton
 

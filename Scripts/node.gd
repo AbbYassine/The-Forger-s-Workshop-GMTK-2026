@@ -4,14 +4,15 @@ extends Node
 @onready var timer_label: Label = $UI/TimerLabel
 @onready var painting_display: TextureRect = $UI/PaintingDisplay
 @onready var drawing_canvas = $SubViewportContainer/SubViewport/Node2D
+@onready var paletteclick: AudioStreamPlayer2D = $paletteclick
 
 var original_painting: Image
 
 var grid_zones = 16
-var time_limit = 45
-var time_remaining = 45
-var painting_reveal_time = 5.0
-var painting_reveal_remaining_time = 5.0
+var time_limit = 60
+var time_remaining = 60
+var painting_reveal_time = 10.0
+var painting_reveal_remaining_time = 10.0
 var game_started = false
 var player_image: Image
 
@@ -119,6 +120,8 @@ func start_new_round() -> void:
 
 func _on_bucket_pressed() -> void:
 	drawing_canvas.bucket_mode = true
+	paletteclick.play()
 
 func _on_pencil_pressed() -> void:
 	drawing_canvas.bucket_mode = false
+	paletteclick.play()

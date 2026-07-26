@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://63588k5hdlkc" path="res://assets/font/PixelOperator.ttf" id="4_7mae1"]
 [ext_resource type="Texture2D" uid="uid://hw7vhr7qcpop" path="res://assets/tools/bucket.png" id="5_vl6kb"]
 [ext_resource type="Texture2D" uid="uid://cfd5cp7h4iw8q" path="res://assets/tools/pencil2.png" id="6_vl6kb"]
+[ext_resource type="AudioStream" uid="uid://b410p018xijyw" path="res://assets/sfx/platteclick.wav" id="7_gcjru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2de4x"]
 bg_color = Color(0, 0, 0, 1)
@@ -84,6 +85,10 @@ texture_filter = 1
 script = ExtResource("1_nl5jd")
 
 [node name="Timer" type="Timer" parent="." unique_id=1860749360]
+
+[node name="paletteclick" type="AudioStreamPlayer2D" parent="." unique_id=1998406247]
+position = Vector2(503, 125)
+stream = ExtResource("7_gcjru")
 
 [node name="UI" type="Control" parent="." unique_id=722398970]
 layout_mode = 3

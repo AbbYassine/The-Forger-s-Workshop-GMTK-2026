@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://bl381jh7jry7b" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://cpfqjnq4b770k" path="res://assets/Background/background.png" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://63588k5hdlkc" path="res://assets/font/PixelOperator.ttf" id="3_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://bfa4rrxribxh8" path="res://assets/Buttons/BrownButtons/PlayButton.png" id="4_n45e2"]
+[ext_resource type="Texture2D" uid="uid://ciivpptyd3ccw" path="res://assets/Buttons/BrownButtons/exitButton.png" id="5_opfnp"]
+[ext_resource type="AudioStream" uid="uid://45pga212vnfi" path="res://assets/sfx/UIclick.wav" id="6_opfnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
 
 [node name="main_menu" type="Node" unique_id=1915236102]
 script = ExtResource("1_48xlc")
@@ -38,15 +45,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -307.0
+offset_left = -263.0
 offset_top = 203.0
-offset_right = -20.0
-offset_bottom = 282.0
+offset_right = -64.0
+offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 32
-text = "START"
+theme_override_styles/hover = SubResource("StyleBoxFlat_n45e2")
+icon = ExtResource("4_n45e2")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="exit" type="Button" parent="Buttons" unique_id=857995137]
 texture_filter = 1
@@ -55,15 +66,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 21.0
+offset_left = 26.0
 offset_top = 203.0
-offset_right = 308.0
+offset_right = 227.0
 offset_bottom = 282.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 32
-text = "EXIT"
+theme_override_styles/hover = SubResource("StyleBoxFlat_opfnp")
+icon = ExtResource("5_opfnp")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="buttonpress" type="AudioStreamPlayer2D" parent="Buttons" unique_id=133242393]
+stream = ExtResource("6_opfnp")
+bus = &"UIclick"
 
 [connection signal="pressed" from="Buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons/exit" to="." method="_on_exit_pressed"]

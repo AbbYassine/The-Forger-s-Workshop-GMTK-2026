@@ -3,8 +3,9 @@ extends Control
 @onready var result_label: Label = $ResultLabel
 @onready var average_label: Label = $AverageLabel
 @onready var retry_button: Button = $RetryButton
+@onready var buttonpress: AudioStreamPlayer2D = $buttonpress
 
-const WIN_THRESHOLD = 60.0
+const WIN_THRESHOLD = 70.0
 
 func _ready() -> void:
 	var average = GameData.get_average_accuracy()
@@ -20,4 +21,14 @@ func _ready() -> void:
 
 func _on_retry_pressed() -> void:
 	GameData.reset_run()
-	get_tree().change_scene_to_file("res://Scenes/sub_viewport_container.tscn")
+	Transition.transition_to("res://Scenes/sub_viewport_container.tscn")
+	buttonpress.play()
+
+
+func _on_exit_button_pressed() -> void:
+	buttonpress.play()
+	get_tree().quit()
+
+
+func _on_retry_button_pressed() -> void:
+	pass # Replace with function body.

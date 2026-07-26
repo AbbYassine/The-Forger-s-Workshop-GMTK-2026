@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://c2xsu46iji15t" path="res://Scripts/end_screen.gd" id="1_f2mtv"]
 [ext_resource type="Texture2D" uid="uid://cpfqjnq4b770k" path="res://assets/Background/background.png" id="2_1gwaw"]
 [ext_resource type="FontFile" uid="uid://63588k5hdlkc" path="res://assets/font/PixelOperator.ttf" id="3_bhpww"]
+[ext_resource type="Texture2D" uid="uid://bfa4rrxribxh8" path="res://assets/Buttons/BrownButtons/PlayButton.png" id="4_8yanq"]
+[ext_resource type="Texture2D" uid="uid://ciivpptyd3ccw" path="res://assets/Buttons/BrownButtons/exitButton.png" id="5_fi2y0"]
+[ext_resource type="AudioStream" uid="uid://45pga212vnfi" path="res://assets/sfx/UIclick.wav" id="6_fi2y0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhpww"]
 bg_color = Color(0.92941177, 0.9019608, 0.8392157, 1)
@@ -67,10 +70,35 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -171.5
+offset_left = -388.0
 offset_top = -134.0
-offset_right = 171.5
+offset_right = -45.0
 offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Retry"
+theme_override_fonts/font = ExtResource("3_bhpww")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("4_8yanq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ExitButton" type="Button" parent="." unique_id=1624698248]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 516.0
+offset_right = 948.0
+offset_bottom = 605.0
+theme_override_fonts/font = ExtResource("3_bhpww")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("5_fi2y0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="buttonpress" type="AudioStreamPlayer2D" parent="." unique_id=1249683432]
+stream = ExtResource("6_fi2y0")
+bus = &"UIclick"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
