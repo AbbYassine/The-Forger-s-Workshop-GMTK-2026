@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://ct33mw21k8ao4"
 
 GameData="*uid://bnpxajfvyerkn"
 Transition="*uid://ckcucaet4opwu"
+Music="*uid://b48j8at6cgk6n"
 
 [physics]
 

@@ -89,6 +89,7 @@ script = ExtResource("1_nl5jd")
 [node name="paletteclick" type="AudioStreamPlayer2D" parent="." unique_id=1998406247]
 position = Vector2(503, 125)
 stream = ExtResource("7_gcjru")
+bus = &"paletteclick"
 
 [node name="UI" type="Control" parent="." unique_id=722398970]
 layout_mode = 3
@@ -135,11 +136,15 @@ texture = ExtResource("3_so2p4")
 [node name="GridContainer" type="GridContainer" parent="UI" unique_id=1146407246]
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.417
+anchor_right = 0.81600004
+anchor_bottom = 6.097
 offset_left = 9.0
-offset_top = 102.0
-offset_right = 133.0
-offset_bottom = 439.0
+offset_top = -0.024002075
+offset_right = -0.008010864
+offset_bottom = 0.015991211
 mouse_filter = 0
 columns = 2
 script = ExtResource("4_2de4x")
@@ -197,13 +202,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_y76r2")
 
 [node name="Tools" type="Control" parent="UI" unique_id=229138323]
 layout_mode = 1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.55600005
-offset_left = -124.5
-offset_top = 529.0
-offset_right = 72.5
-offset_bottom = 577.968
+anchor_left = -0.264
+anchor_top = 7.347
+anchor_right = 0.94500005
+anchor_bottom = 8.583
+offset_left = 0.032001495
+offset_top = 0.015991211
+offset_right = -0.035003662
+offset_bottom = 0.023986816
 grow_horizontal = 2
 
 [node name="bucket" type="Button" parent="UI/Tools" unique_id=2100030909]
