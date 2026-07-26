@@ -32,6 +32,6 @@ func animate_accuracy() -> void:
 
 func _on_next_pressed() -> void:
 	if GameData.is_run_complete():
-		Transition.transition_to("res://scenes/end_screen.tscn")
+		Transition.transition_to("res://Scenes/end_screen.tscn")
 	else:
 		Transition.transition_to("res://Scenes/sub_viewport_container.tscn")

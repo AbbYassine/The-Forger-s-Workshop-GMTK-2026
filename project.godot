@@ -25,6 +25,10 @@ GameData="*uid://bnpxajfvyerkn"
 Transition="*uid://ckcucaet4opwu"
 Music="*uid://b48j8at6cgk6n"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

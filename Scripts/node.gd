@@ -17,14 +17,15 @@ var game_started = false
 var player_image: Image
 
 var paintings = [
-	"res://assets/paintings/candle.png",
 	"res://assets/paintings/duck.png",
-	"res://assets/paintings/temple.png",
 	"res://assets/paintings/batman.png",
+	"res://assets/paintings/candle.png",
+	"res://assets/paintings/cat.png",
 	"res://assets/paintings/ET.png",
 	"res://assets/paintings/Sword.png",
-	"res://assets/paintings/cat.png",
+	"res://assets/paintings/temple.png",
 	"res://assets/paintings/yin&yang.png"
+	
 ]
 
 enum GameState { REVEALING, DRAWING }

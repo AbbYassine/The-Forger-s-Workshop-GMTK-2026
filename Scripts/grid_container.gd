@@ -15,7 +15,7 @@ func _on_white_pressed() -> void:
 	paletteclick.play()
 
 func _on_red_pressed() -> void:
-	drawing_canvas.brush_color = Color.RED
+	drawing_canvas.brush_color = Color.html("#ff0000")
 	paletteclick.play()
 
 func _on_blue_pressed() -> void:
@@ -23,11 +23,11 @@ func _on_blue_pressed() -> void:
 	paletteclick.play()
 
 func _on_brown_pressed() -> void:
-	drawing_canvas.brush_color = Color.BROWN
+	drawing_canvas.brush_color = Color.html("#8b5a2b")
 	paletteclick.play()
 
 func _on_yellow_pressed() -> void:
-	drawing_canvas.brush_color = Color.YELLOW
+	drawing_canvas.brush_color = Color.html("#fbf236")
 	paletteclick.play()
 
 
