@@ -9,8 +9,8 @@ extends Node
 var original_painting: Image
 
 var grid_zones = 16
-var time_limit = 60
-var time_remaining = 60
+var time_limit = 50
+var time_remaining = 50
 var painting_reveal_time = 10.0
 var painting_reveal_remaining_time = 10.0
 var game_started = false

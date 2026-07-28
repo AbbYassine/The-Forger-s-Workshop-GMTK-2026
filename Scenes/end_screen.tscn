@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cpfqjnq4b770k" path="res://assets/Background/background.png" id="2_1gwaw"]
 [ext_resource type="FontFile" uid="uid://63588k5hdlkc" path="res://assets/font/PixelOperator.ttf" id="3_bhpww"]
 [ext_resource type="Texture2D" uid="uid://bfa4rrxribxh8" path="res://assets/Buttons/BrownButtons/PlayButton.png" id="4_8yanq"]
-[ext_resource type="Texture2D" uid="uid://ciivpptyd3ccw" path="res://assets/Buttons/BrownButtons/exitButton.png" id="5_fi2y0"]
 [ext_resource type="AudioStream" uid="uid://45pga212vnfi" path="res://assets/sfx/UIclick.wav" id="6_fi2y0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhpww"]
@@ -73,13 +72,13 @@ vertical_alignment = 1
 [node name="RetryButton" type="Button" parent="." unique_id=394776392]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21300001
+anchor_left = 0.39100003
 anchor_top = 0.79300004
-anchor_right = 0.411
+anchor_right = 0.59000003
 anchor_bottom = 0.93700004
-offset_left = -0.37602234
+offset_left = 0.56796265
 offset_top = 0.13598633
-offset_right = 0.5279846
+offset_right = 0.3199463
 offset_bottom = -0.17602539
 grow_horizontal = 2
 grow_vertical = 0
@@ -90,27 +89,8 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="ExitButton" type="Button" parent="." unique_id=1624698248]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.57900006
-anchor_top = 0.809
-anchor_right = 0.77000004
-anchor_bottom = 0.94600004
-offset_left = -0.008056641
-offset_top = -0.23199463
-offset_right = -0.040039063
-offset_bottom = -0.0079956055
-theme_override_fonts/font = ExtResource("3_bhpww")
-theme_override_font_sizes/font_size = 32
-icon = ExtResource("5_fi2y0")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
 [node name="buttonpress" type="AudioStreamPlayer2D" parent="." unique_id=1249683432]
 stream = ExtResource("6_fi2y0")
 bus = &"UIclick"
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
