@@ -7,7 +7,7 @@ This is a game Made for thge GMTK 2026 edition with the theme of COUNT DOWN
 The goal of this game is to memorize paintings and forge them in the given time 
 At the end of the game if you managed to get more than a certain pourcentage , you win the game and you have successfully fooled the museum 
 
-<h1>Screen Shots</h1>
+<h1>Screenshots</h1>
 <img width="1868" height="1052" alt="image" src="https://github.com/user-attachments/assets/9f9afcfb-d076-4864-a000-357bf9e05d34" />
 <img width="1866" height="1052" alt="image" src="https://github.com/user-attachments/assets/78e4e847-2cfd-4b69-9be5-ca55c17b6f57" />
 <img width="1858" height="1053" alt="image" src="https://github.com/user-attachments/assets/67cab66a-c4c7-4f52-804f-48e540e0bb1f" />
