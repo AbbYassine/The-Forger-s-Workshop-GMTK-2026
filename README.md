@@ -15,8 +15,11 @@ At the end of the game if you managed to get more than a certain pourcentage , y
 
 <h1>Assets</h1>
 Buttons : https://krutoygus.itch.io/buttons
+
 music (no changes were made ) : https://freemusicarchive.org/music/geoff-harvey-purple-planet-music/french-scene/french-life/
+
 buttons click sound : https://freesound.org/people/Mellau/sounds/506054/
+
 palette click sound :https://freesound.org/people/CaptainYulef/sounds/638300/
 
 
